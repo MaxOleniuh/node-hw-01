@@ -12,7 +12,7 @@ async function invokeAction({ action, id, name, email, phone }) {
     switch (action) {
       case "list":
         listContacts()
-          .then((contacts) => console.log(contacts))
+          .then((contacts) => console.table(contacts))
           .catch(console.error);
         break;
 

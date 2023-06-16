@@ -9,10 +9,14 @@ async function listContacts() {
 }
 async function getContactById(contactId) {
   try {
-    const data = await fs.readFile(contactsPath);
-    const contacts = JSON.parse(data);
-    const contact = contacts.find((c) => c.id === contactId);
-    return contact;
+    if (contactId !== -1) {
+      const data = await fs.readFile(contactsPath);
+      const contacts = JSON.parse(data);
+      const contact = contacts.find((c) => c.id === contactId);
+      return contact;
+    } else {
+      return null;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -23,11 +27,15 @@ async function removeContact(contactId) {
     const data = await fs.readFile(contactsPath);
     const contacts = JSON.parse(data);
     const updatedContacts = contacts.filter((c) => c.id !== contactId);
-    const result = await fs.writeFile(
-      contactsPath,
-      JSON.stringify(updatedContacts)
-    );
-    return result;
+    if (contactId !== -1) {
+      const result = await fs.writeFile(
+        contactsPath,
+        JSON.stringify(updatedContacts)
+      );
+      return result;
+    } else {
+      return null;
+    }
   } catch (error) {
     console.log(error);
   }
