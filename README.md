@@ -13,7 +13,8 @@
 [add_contact](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/fdf7b187-be63-4529-a89e-da8bb54ae863)
 
 #### Screenshots of the result of each invokeAction(argv): 
-[action_list](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/86fce047-6ad7-4054-b73a-8c6cab229269)
+[action_list](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/ead1effd-1677-46d6-9b3b-3ba6d4f8a928)
 [action_get](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/86f77c6b-fb59-483f-bb22-aab5388c4c4e)
 [action_add](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/32922e02-9f18-4618-9eb5-f8b47a07d179)
 [action_remove](https://github.com/MaxOleniuh/node-hw-01/assets/120305133/a6634244-515b-4573-ae40-13347a797fe0)
+
