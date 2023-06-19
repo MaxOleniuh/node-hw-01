@@ -24,14 +24,14 @@ async function invokeAction({ action, id, name, email, phone }) {
 
       case "add":
         addContact(name, email, phone).then(() =>
-          console.log("Contact added successfully", name, email, phone)
+          console.log("Contact added successfully")
         );
         break;
 
       case "remove":
-        removeContact(id).then(() =>
-          console.log("Contact removed successfully")
-        );
+        removeContact(id).then(() => {
+          console.log("Contact removed successfully");
+        });
         break;
 
       default:

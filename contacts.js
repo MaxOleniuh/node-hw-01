@@ -13,7 +13,7 @@ async function getContactById(contactId) {
       const data = await fs.readFile(contactsPath);
       const contacts = JSON.parse(data);
       const contact = contacts.find((c) => c.id === contactId);
-      return contact;
+      return contact || null;
     } else {
       return null;
     }
@@ -24,34 +24,32 @@ async function getContactById(contactId) {
 
 async function removeContact(contactId) {
   try {
-    const data = await fs.readFile(contactsPath);
-    const contacts = JSON.parse(data);
-    const updatedContacts = contacts.filter((c) => c.id !== contactId);
-    if (contactId !== -1) {
-      const result = await fs.writeFile(
-        contactsPath,
-        JSON.stringify(updatedContacts)
-      );
-      return result;
-    } else {
-      return null;
+    const contacts = await listContacts();
+    const contactIndex = contacts.findIndex((el) => el.id === contactId);
+    const removedContact = contacts.find((el) => el.id === contactId);
+    if (contactIndex === -1) {
+      console.log(null);
     }
+    contacts.splice(contactIndex, 1);
+    console.log(removedContact);
+    await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   } catch (error) {
     console.log(error);
   }
 }
 
-async function addContact(name, email, phone) {
+async function addContact() {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
     const newContact = {
-      name,
-      email,
-      phone,
+      name: "Mango",
+      email: "mango@gmail.com",
+      phone: "322-22-22",
     };
     contacts.push(newContact);
     const result = await fs.writeFile(contactsPath, JSON.stringify(contacts));
+    console.log(newContact);
     return result;
   } catch (error) {
     console.log(error);
