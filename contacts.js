@@ -38,14 +38,14 @@ async function removeContact(contactId) {
   }
 }
 
-async function addContact() {
+async function addContact(name, email, phone) {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
     const newContact = {
-      name: "Mango",
-      email: "mango@gmail.com",
-      phone: "322-22-22",
+      name,
+      email,
+      phone,
     };
     contacts.push(newContact);
     const result = await fs.writeFile(contactsPath, JSON.stringify(contacts));

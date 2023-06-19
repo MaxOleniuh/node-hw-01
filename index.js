@@ -41,5 +41,4 @@ async function invokeAction({ action, id, name, email, phone }) {
     console.log(err);
   }
 }
-
 invokeAction(argv);
